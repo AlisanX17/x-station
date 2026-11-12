@@ -1,0 +1,25 @@
+{
+  "name": "x-station",
+  "version": "1.0.0",
+  "description": "A PlayStation-inspired desktop game launcher",
+  "main": "src/main.js",
+  "author": "Alisan Shirzad",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^39.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.alisan.xstation",
+    "productName": "X Station",
+    "asar": true,
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "package.json"],
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }], "artifactName": "X-Station-Setup-${version}.${ext}" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true }
+  }
+}
